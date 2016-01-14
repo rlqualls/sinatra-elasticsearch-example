@@ -54,7 +54,7 @@ task :strip do
 end
 
 task :elastic do
-  puts "Putting the data into elasticsearch..."
+  puts "Putting the data into elasticsearch...this could take 1-5 minutes"
 
   client = Elasticsearch::Client.new
   id = 1
