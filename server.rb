@@ -19,6 +19,5 @@ post '/api/movie_search' do
     response << hit["_source"]["title"]
   end
 
-  # response.to_json.gsub('\n', '')
   response.to_json
 end
