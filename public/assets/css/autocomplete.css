@@ -1,0 +1,9 @@
+.autocomplete-suggestions { 
+  border: 3px solid #279; 
+  background: #151515;
+  border-radius: 10px;
+}
+
+.autocomplete-suggestion { 
+  padding: 10px; white-space: nowrap; overflow: hidden; 
+}

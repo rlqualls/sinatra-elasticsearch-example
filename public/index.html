@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>IMDB Search</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/autocomplete.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" align="center">
+				<h1>IMDB Movies</h1>
+        <br />
+        <p>Search for movies and shows in the public IMDB database</p>
+			</header>
+
+		<!-- Search Form -->
+			<form id="search-form" method="post" action="#">
+				<input type="text" name="title" id="title" placeholder="Search for a movie" autocomplete="off"/>
+			</form>
+
+      <div class="autocomplete-suggestions" id="movies">
+      </div>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="https://code.jquery.com/jquery-2.2.0.min.js" />
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/autocomplete.js"></script>
+
+      <div id="bg">
+        <div class="visible top" style="background-image: url(&quot;images/bg01.jpg&quot;); background-position: 50% 50%;"></div>
+
+        <div style="background-image: url(&quot;images/bg02.jpg&quot;); background-position: 50% 50%;" class=""></div>
+
+        <div style="background-image: url(&quot;images/bg03.jpg&quot;); background-position: 50% 50%;" class=""></div>
+      </div>
+	</body>
+</html>
