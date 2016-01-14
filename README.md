@@ -11,6 +11,8 @@ Live search movies and shows from the public IMDB dataset. Looks best in Chrome 
 3. libcurl
 4. Elasticsearch
 
+## Elasticsearch
+
     $ brew install elasticsearch
     $ elasticsearch
 
