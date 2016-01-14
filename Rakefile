@@ -70,5 +70,5 @@ task :elastic do
 end
 
 task :setup => [:download, :convert, :strip, :elastic] do
-  puts "Ready, just \"ruby server.rb\""
+  puts "Ready, just \"rackup\""
 end
