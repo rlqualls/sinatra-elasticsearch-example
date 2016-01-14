@@ -25,16 +25,21 @@ task :download do
   filename = "countries.list.gz"
   if not File.exist? 'countries.list'
     download "ftp://ftp.fu-berlin.de/pub/misc/movies/database/#{filename}", filename
-    `gunzip countries.list.gz`
+    `gunzip #{filename}`
   end
 end
 
 task :convert do
-  puts "Converting the data to UTF-8..."
-  `iconv -f WINDOWS-1252 -t UTF-8 countries.list > countries.list.utf8`
+  filename = "countries.list.utf8"
+  if not File.exist? filename
+    puts "Converting the data to UTF-8..."
+    `iconv -f WINDOWS-1252 -t UTF-8 countries.list > #{filename}`
+  end
 end
 
 task :strip do
+  filename = "movies.dat"
+  if not File.exist? filename
     puts "Removing duplicates..."
     movies = []
 
@@ -46,11 +51,12 @@ task :strip do
 
     movies = movies.uniq
 
-    File.open("movies.dat", "w") do |file|
+    File.open(filename, "w") do |file|
       movies.each do |movie|
         file.puts movie
       end
     end
+  end
 end
 
 task :elastic do
