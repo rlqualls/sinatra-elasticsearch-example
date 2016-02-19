@@ -1,5 +1,6 @@
 require "elasticsearch"
 require "fileutils"
+require "tty-spinner"
 require "curb"
 
 # Note: It says 'countries' but it's a movie title data set
@@ -8,11 +9,11 @@ def download(url, filename)
   easy = Curl::Easy.new
   easy.follow_location = true
   easy.url = url
-  print "'#{url}' :"
 
   File.open(filename, 'wb') do |f|
+    spinner = TTY::Spinner.new("Dowloading #{url}... ", format: :spin_4)
     easy.on_progress do |dl_total, dl_now, ul_total, ul_now|
-      print "="
+      spinner.spin
       true
     end
     easy.on_body { |data| f << data; data.size }
