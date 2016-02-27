@@ -1,27 +1,14 @@
+$LOAD_PATH.unshift(File.expand_path('../lib', __FILE__))
+
 require "elasticsearch"
 require "fileutils"
 require "tty-spinner"
 require "curb"
+require "sinatra_elasticsearch_example/helpers"
+
+include SinatraElasticsearchExample::Helpers
 
 # Note: It says 'countries' but it's a movie title data set
-
-def download(url, filename)
-  easy = Curl::Easy.new
-  easy.follow_location = true
-  easy.url = url
-
-  File.open(filename, 'wb') do |f|
-    spinner = TTY::Spinner.new("Dowloading #{url}... ", format: :spin_4)
-    easy.on_progress do |dl_total, dl_now, ul_total, ul_now|
-      spinner.spin
-      true
-    end
-    easy.on_body { |data| f << data; data.size }
-    easy.perform
-    puts "=> '#{filename}'"
-  end
-end
-
 task :download do
   filename = "countries.list.gz"
   if not File.exist? 'countries.list'
